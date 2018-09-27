@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>INTROBAY - Introducción a Drupal</title>
+		<title>INTROBAY - Gestiona tus despliegues sin perder la cabeza</title>
 
-		<meta name="description" content="Introducción a Drupal">
+		<meta name="description" content="Gestiona tus despliegues sin perder la cabeza">
 		<meta name="author" content="Ignacio López Flores - Introbay">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,22 +52,24 @@
             <div class="slides">
 
                 <section>
-                    <img class="sin-cajas" src="imgs/logo-tag-centro-blanco.svg" style="width:420px;" /><br/>
-                    <div>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+                    <img class="sin-cajas" src="imgs/logo-tag-centro-blanco.svg" style="width:350px;" />
+                    <img class="sin-cajas" src="imgs/centic.jpg" style="width:350px;margin-left: 60px " />
+
+                    <br/>
+                    <div>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
                     <br>
-                    <h2>Introducción a <b style="color:#008ec4;">Drupal</b> + <b style="color:#008ec4;">Docker</b></h2>
-                    <div>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
-                    <img class="sin-cajas" src="imgs/drupal_daylogo-little_0.png" style="width:150px; float: left" />
-                    <h3 style="margin-top: 50px">DrupalDay Murcia 2015</h3>
+                    <h2>Gestiona tus <b style="color:#008ec4;">despliegues</b> sin perder la <b style="color:#008ec4;">cabeza</b></h2>
+                    <div>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+
                 </section>
 
                 <section>
-                    <img align="left" src="imgs/ignacio.png" width="250" border="none">
+                    <img class="sin-cajas" src="imgs/ignacio.png" style="text-align: left; width: 250px;">
                     <div style="float: right;">
-                        <img src="imgs/logo-tag-centro-blanco.svg" width="600" style="border: none; background: none; box-shadow: none">
+                        <img  src="imgs/logo-tag-centro-blanco.svg" width="600" style="border: none; background: none; box-shadow: none">
                         <p>Ignacio L&oacute;pez Flores -&nbsp;<a href="https://twitter.com/ignaciolflores" target="_blank">@ignaciolflores</a></p>
                         <p>Founder & CEO @ Introbay</p>
-                        <a href="http://about.me/ignaciolflores" target="_blank">about.me/ignaciolflores</a>
+                        <p >ignacio@introbay.com</p>
                     </div>
                 </section>
 
@@ -76,54 +78,6 @@
                 </section>
 
                 <section>
-                    <h2>Transportes antes de los 60</h2>
-                    <img src="imgs/cargo-transport-pre-1960.png" style="background-color: #ffffff" width="80%">
-                </section>
-
-                <section>
-                    <h2>¿Cómo lo solucionaron?</h2>
-                    <h3>Contenedores de transporte</h3>
-                    <img src="imgs/intermodal-shipping-container.png" style="background-color: #ffffff" width="80%">
-                </section>
-
-                <section>
-                    <h2>¿Por qué le gusta a los desarrolladores?</h2>
-                    <ul>
-                        <li class="fragment">Se construye una vez... y se ejecuta en cualquier parte</li>
-                        <li class="fragment">Un entorno de ejecución limpio, seguro, higiénico y portable para tus aplicaciones.</li>
-                        <li class="fragment">Una vez desplegado, no hay que volver a preocuparse por dependencias, paquetes y otras configuraciones que suelen traer dolores de cabeza.</li>
-                        <li class="fragment">Cada aplicación se ejecuta en su propio contenedor aislado, eso nos permite tener distintas versiones de librerías y otras dependencias para cada aplicación sin preocupaciones.</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2>¿Por qué le gusta a los desarrolladores?</h2>
-                    <ul>
-                        <li class="fragment">Test automáticos, integración continua, empaquetado... en definitiva, cualquier cosa para la que se pueda escribir un script.</li>
-                        <li class="fragment">Elimina problemas sobre compatibilidad en diferentes plataformas, tanto en la tuya como en la de tus clientes.</li>
-                        <li class="fragment">No hay penalización a la hora de desplegar servicios. Una VM sin la sobrecarga de una VM. Se pueden re-lanzar y resetear imágenes al instante.</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2>¿Por qué le gusta a los administradores?</h2>
-                    <ul>
-                        <li class="fragment">Lo configuramos una vez... y lo ejecutamos cada vez que queramos.</li>
-                        <li class="fragment">Consigue que el ciclo de vida sea más eficiente, consistente y repetible.</li>
-                        <li class="fragment">Incrementa la calidad del código de los desarrolladores. Elimina inconsistencias entre entornos de desarrollo, test, producción, etc.</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2>¿Por qué le gusta a los administradores?</h2>
-                    <ul>
-                        <li class="fragment">Mejora significativamente la velocidad en despliegues automáticos y en sistemas de integración continua.</li>
-                        <li class="fragment">Como los contenedores son muy ligeros, se eliminan los problemas de rendimiento, costes, despliegues y problemas de portabilidad a los que normalmente están asociadas las VM.</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2>Más detalles técnicos</h2>
                     <h3>A alto nivel: una VM ligera</h3>
                     <ul>
                         <li>Propio espacio de procesos</li>
@@ -135,7 +89,6 @@
                 </section>
 
                 <section>
-                    <h2>Más detalles técnicos</h2>
                     <h3>A bajo nivel: CHROOT con esteroides</h3>
                     <ul>
                         <li>Puede no tener su propio /sbin/init</li>
@@ -159,242 +112,371 @@
                 </section>
 
                 <section>
-                    <h1>Vamos a la <b style="color:#008ec4;">práctica</b>!</h1>
+                    <h2><b style="color:#008ec4;">Dockerfile</b></h2>
+                    <h3>Ejemplo práctico</h3>
+                    <ul>
+                        <li>Compilación de una app</li>
+                        <li>Ejecución de una app</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h2>Instalación de <b style="color:#008ec4;">Docker</b></h2>
+                    <h2><b style="color:#008ec4;">Dockerfile</b></h2>
 
-                    <a href="http://docs.docker.com/engine/installation/" target="_blank">http://docs.docker.com/engine/installation/</a>
-                </section>
-
-                <section>
-                    <h2>La magia de <b style="color:#008ec4;">Docker Compose</b></h2>
-
-                    <a href="https://docs.docker.com/compose/" target="_blank">https://docs.docker.com/compose/</a>
-                </section>
-
-                <section>
-                    <h2>Guía rápida de <b style="color:#008ec4;">Docker Compose</b></h2>
-docker-compose.yml
-<pre><code>hello:
-  image: hello-world
+                    Dockerfile para la compilación
+<pre><code class="Dockerfile">FROM golang:1.7.3
+WORKDIR /go/src/mi-app/
+COPY app.go .
+RUN go get -d -v golang.org/x/net/html \
+  && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 </code></pre>
 
-<pre><code>$ docker-compose up -d</code></pre>
+                    <pre class="fragment"><code>docker build -t usuario/app:build .</code></pre>
+                    <pre class="fragment"><code>docker create --name extract usuario/app:build</code></pre>
+                    <pre class="fragment"><code>docker cp extract:/go/src/mi-app/app ./app</code></pre>
+                    <pre class="fragment"><code>docker rm -f extract</code></pre>
+                </section>
 
-<pre><code>$ docker-compose stop</code></pre>
+                <section>
+                    <h2><b style="color:#008ec4;">Dockerfile</b></h2>
+                    Dockerfile ejecución
+                    <pre><code class="Dockerfile">FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY app .
+CMD ["./app"]
 
-<pre><code>$ docker-compose start</code></pre>
+</code></pre>
 
-<pre><code>$ docker-compose rm -f</code></pre>
+                    <pre class="fragment"><code>docker build --no-cache -t usuario/app:latest .</code></pre>
+                    <pre class="fragment"><code>rm ./app</code></pre>
 
                 </section>
 
                 <section>
                     <h2><b style="color:#008ec4;">Dockerfile</b></h2>
 
-                    <a href="http://docs.docker.com/engine/reference/builder/" target="_blank">http://docs.docker.com/engine/reference/builder/</a>
-                </section>
+                    Dockerfile.build
+                    <pre><code class="Dockerfile">FROM golang:1.7.3
+WORKDIR /go/src/mi-app/
+COPY app.go .
+RUN go get -d -v golang.org/x/net/html \
+  && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+</code></pre>
 
-
-                <section>
-                    <h2>Guía rápida de <b style="color:#008ec4;">Dockerfile</b></h2>
                     Dockerfile
-<pre><code class="Dockerfile">FROM hello-world:latest
-MAINTAINER Ignacio López Flores
-RUN ls /
-</code></pre>
-
-<pre><code>docker build -t usuario/imagen:tag .</code></pre>
-
-                    docker-compose.yml
-<pre><code>hello:
-    build: .
+                    <pre><code class="Dockerfile">FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY app .
+CMD ["./app"]
 </code></pre>
 
                 </section>
 
 
                 <section>
-                    <section>
-                        <h2>Qué <span class="resaltado">es</span> Drupal</h2>
-                        <ul>
-                            <li class="fragment">Gestor de contenidos modular y muy configurable.</li>
-                            <li class="fragment">Ideal para crear sitios web dinámicos y con gran variedad de funcionalidades.</li>
+                    <h2><b style="color:#008ec4;">Dockerfile</b></h2>
+
+                    build.sh
+                    <pre ><code>#!/bin/sh
+echo Building usuario/app:build
+docker build -t usuario/app:build . -f Dockerfile.build
+docker create --name extract usuario/app:build
+docker cp extract:/go/src/mi-app/app ./app
+docker rm -f extract
+
+echo Building usuario/app:latest
+docker build --no-cache -t usuario/app:latest .
+rm ./app</code></pre>
+
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Multi-stage builds</b></h2>
+
+                    <ul>
+                        <li class="fragment">Podemos usar varias sentencias FROM en un Dockerfile</li>
+                        <li class="fragment">Cada sentencia FROM puede usar una imagen base diferente</li>
+                        <li class="fragment">Cada sentencia FROM comienza un nuevo ciclo de construcción</li>
+                        <li class="fragment">Podemos copiar los artifacts generados en ciclos posteriores</li>
+                    </ul>
+
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Multi-stage builds</b></h2>
+                    Dockerfile
+                    <pre><code class="Dockerfile">FROM golang:1.7.3
+WORKDIR /go/src/mi-app/
+RUN go get -d -v golang.org/x/net/html
+COPY app.go .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=0 /go/src/mi-app/app .
+CMD ["./app"]
+</code></pre>
+
+                    <pre class="fragment"><code>docker build --no-cache -t usuario/app:latest .</code></pre>
+
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Multi-stage builds</b></h2>
+                    Nombrar fases
+                    <pre><code class="Dockerfile">FROM golang:1.7.3 as builder
+WORKDIR /go/src/mi-app/
+RUN go get -d -v golang.org/x/net/html
+COPY app.go .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=builder /go/src/mi-app/app .
+CMD ["./app"]
+</code></pre>
+
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Multi-stage builds</b></h2>
+                    <h3>Definir fase objetivo</h3>
+                    Podemos parar la construcción en la fase que necesitemos
+
+
+                    <pre class="fragment"><code>docker build --target builder -t usuario/app:latest .</code></pre>
+
+                    <div class="fragment" style="font-size: 0.8em">
+                        <p>Puede resultar útil para</p>
+                        <ul >
+                            <li>Depuración de una fase específica</li>
+                            <li>Utilizar una fase de depuración en la que se habiliten ciertas herramientas</li>
+                            <li>Utilizar una fase de test en la que añadamos datos a la aplicación</li>
                         </ul>
-                    </section>
 
-                    <section>
-                        <h2>Qué <span class="resaltado">es</span> Drupal</h2>
-                        <div class="fragment">
-                            <p>Miles de módulos y diseños creados para Drupal.</p>
-                        </div>
-                        <div class="fragment">
-                            <img src="imgs/flecha.png" class="sin-cajas" style="width:70px ">
-                            <p>Minimiza código a medida.</p>
-                        </div>
-                        <div class="fragment">
-                            <img src="imgs/flecha.png" class="sin-cajas" style="width:70px ">
-                            <p>Optimizando la eficiencia de portales.</p>
-                        </div>
-                    </section>
+                    </div>
                 </section>
 
                 <section>
-                    <h2>Drupal <span class="resaltado">es</span> Flexibilidad</h2>
+                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
+                    <p>Al generar una imagen, Docker crea una capa por cada instrucción que escribimos en nuestro Dockerfile.</p>
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
+                    <p>Con el fin de minimizar el número de capas, concatenamos instrucciones usando && y otras técnicas.</p>
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
+                    <p>Además, cuando creamos un contenedor, docker le asigna una "thin-layer", que no es más que una capa encima de todas las demás y que tiene la peculiaridad de ser de lectura-escritura.</p>
+                </section>
+
+                <section>
+    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
+    <pre><code class="Dockerfile">FROM ubuntu:15.04
+COPY . /app
+RUN make /app
+CMD python /app/app.py
+</code></pre>
+</section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
+                    <img src="imgs/container-layers.jpg">
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
+                    Capas compartidas
+                    <img src="imgs/sharing-layers.jpg">
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
+                    <p>La información que se escribe en la "thin-layer" de un contenedor se destruye con el propio contenedor.</p>
+                    <p>¿Qué pasa si quiero que mis datos sean persistentes?</p>
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
+                    <h3>Existen tres tipos de almacenamientos</h3>
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
+                    <b>Volumes</b> se almacenan en una parte del sistema de ficheros <b>gestionada por Docker</b>.
+                    <p>El resto de procesos no deberían modificar estos datos.</p>
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
+                    <b>Bind mounts</b> pueden estar almacenados en <b>cualquier parte del sistema</b>.
+                    <p>Otros procesos podrían modificar estos datos.</p>
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
+                    <b>tmpfs mounts</b> se almacenan en la <b>memoria</b> del anfitrión solamente, y nunca se escriben el en sistema de ficheros.
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
+                    <img src="imgs/types-of-mounts.png">
+                </section>
+
+                <section>
+                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
+                    <img src="imgs/volumes-shared-storage.svg">
+                </section>
+
+
+                <section>
+                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
+                </section>
+
+                <section>
+                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
                     <ul>
-                        <li>Una de las plataformas más flexibles</li>
-                        <li>Altamente personalizable</li>
-                    </ul>
-                    <p>
-                        <img class="sin-cajas" style="width:600px" src="imgs/flex-drupal.png">
-                    </p>
-                </section>
+                        <li class="fragment">La fase de desarrollo necesita herramientas extra que no se usarán en producción</li>
+                        <li class="fragment">Multi-stage</li>
+                        <li class="fragment">Los desarrolladores necesitarán compilar dentro del contenedor</li>
+                        <li class="fragment">Evitar tener que generar contínuamente las imágenes</li>
 
-                <section>
-                    <h2>Drupal <span class="resaltado">es</span> Amplia comunidad profesional</h2>
-
-                    <ul>
-                        <li>Drupal.org tiene más de 1 millón de usuarios</li>
-                        <li>230 paises</li>
-                        <li>181 idiomas</li>
-                        <li>Profesionalización = Usuarios cualificados</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <section>
-                    <h2>Drupal <span class="resaltado">es</span> Open Source</h2>
-
-                    <p>Código abierto</p>
-                    <img src="imgs/flecha.png" class="sin-cajas" style="width:70px ">
-                    <p>Continuo crecimiento y desarrollo</p>
-                    <img src="imgs/flecha.png" class="sin-cajas" style="width:70px ">
-                    <p>Última generación</p>
-                </section>
-
-                <section>
-                    <h2>Drupal <span class="resaltado">es</span> Open Source</h2>
-
-                    <ul>
-                        <li>Licencia GNU/GPL de libre uso</li>
-                        <li>Cambios de manera rápida</li>
-                        <li>Reducción de costes</li>
-                        <li>Escalable</li>
-                        <li>Solución de errores y mejora con más rapidez</li>
-                    </ul>
-                </section>
-                </section>
-
-                <section>
-                    <h2>Drupal <span class="resaltado">es</span> gratuito</h2>
-                    <p>Su licencia es de libre uso y su código es abierto</p>  
-                    <img class="sin-cajas" style="width:500px" src="imgs/community.png">
-                </section>
-
-                <section>
-                    <section>
-                        <h2>Drupal <span class="resaltado">es</span> Seguridad</h2>
-                        <p>Drupal.org mantiene a un equipo dedicado exclusivamente a la seguridad.</p>
-                        <img class="sin-cajas" style="width:350px;" src="imgs/shield.png">
-                    </section>
-                    <section>
-                        <h2>Drupal <span class="resaltado">es</span> Seguridad</h2>
-                        <p>Uno de los gestores de contenidos más seguros que existen ya que está construido con la seguridad en mente.</p>
-                        <p>Control total de la plataforma y un sistema de permisos basado en roles.</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h2>Drupal <span class="resaltado">es</span> importante</h2>
-
-                    <p>Algunos de los organismos más importartes del mundo confian en drupal.</p>
-
-                    <ul>
-                        <li>
-                            Internacionales: <br/>
-                            <a target="_blank" href="http://www.warnerbros.com/">Warner Bros</a>, 
-                            <a target="_blank" href="http://zyngagames.com/">Zynga</a>, 
-                            <a target="_blank" href="https://www.packtpub.com/">PACKT Publishing</a>, 
-                            <a target="_blank" href="http://www.weather.com/">The Weather Channel</a>, 
-                            <a target="_blank" href="http://www.menshealth.com/">Mens Health</a>, 
-                            <a target="_blank" href="http://www.lefigaro.fr/">Le Figaro</a>, 
-                            <a target="_blank" href="http://www.royalmail.com/">Royal Mail</a>, 
-                            <a target="_blank" href="http://www.gouvernement.fr/">Gobierno francés</a>, 
-                            <a target="_blank" href="http://www.economist.com/">The Economist</a> o la misma
-                            <a target="_blank" href="https://www.whitehouse.gov/">Casa Blanca</a>
-                        </li>
-                        <br>
-                        <li>
-                            Nacionales: <br/>
-                            <a target="_blank" href="http://www.rae.es/">RAE</a>, 
-                            <a target="_blank" href="http://kinepolis.es/">Kinepolis</a>, 
-                            <a target="_blank" href="http://www.telemadrid.es/">Telemadrid</a>, 
-                            <a target="_blank" href="http://www.museoreinasofia.es/">Museo Reina Sofía</a>,
-                            <a target="_blank" href="http://www.idealista.com/news/">Idealista News</a>,  
-                            <a target="_blank" href="http://www.mcdonalds.es/">McDonalds</a>, 
-                            <a target="_blank" href="http://www.castillalamancha.es/">Ayuntamiento de Castilla La Mancha</a>, 
-                            <a target="_blank" href="http://parquedeatracciones.es/">Parque de Atracciones de Madrid</a>, 
-                            <a target="_blank" href="http://www.boing.es/">Boing</a>, 
-                            <a target="_blank" href="http://faunia.es/">Faunia</a>, ... y cada día más.
-                        </li>
                     </ul>
                 </section>
 
-
                 <section>
-                    <h2>Imagen oficial de <b style="color:#008ec4;">Drupal</b></h2>
-
-                    <a href="https://hub.docker.com/_/drupal/" target="_blank">https://hub.docker.com/_/drupal/</a>
+                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
+                    <ul>
+                        <li class="fragment"><pre><code>docker exec -it mi_app bash</code></pre></li>
+                        <li class="fragment">Volumes</li>
+                        <li class="fragment">Permisos</li>
+                        <li class="fragment">En la fase (stage) de desarrollo, es útil añadir scripts de ayuda</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h2>Nuestro propio <b style="color:#008ec4;">Docker Compose</b></h2>
+                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
+                    <ul>
+                        <li class="fragment">Usando docker-compose podemos definir stacks</li>
+                        <li class="fragment">Podemos empaquetar un directorio con docker-compose.yml + ficheros con datos para desarrollo y compartirlo</li>
+                    </ul>
+                </section>
 
-                    docker-compose.yml
-                    <pre><code class="yml">web:
-   image: drupal:7
-   ports:
-    - "5000:5000"
-   volumes:
-    - .:/code
-   links:
-    - db
+                <section>
+                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
+
+                    <pre><code>app:
+  build: ./build/app/.
+  links:
+    - db:db
+  volumes:
+    - ./files/drupal:/var/www
+    - /etc/localtime:/etc/localtime:ro
+    - $HOME/.ssh/id_rsa:/root/.ssh/id_rsa # WARNING: only for dev
+    - $HOME/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub # WARNING: only for dev
+    - $HOME/.ssh/known_hosts:/root/.ssh/known_hosts # WARNING: only for dev
+    - ~/.gitconfig:/root/.gitconfig # WARNING: only for dev
+  ports:
+    - 80:80
+  mem_limit: 1024m
 db:
-   image: mysql:5.6
-   environment:
-    MYSQL_ROOT_PASSWORD=pass
-    MYSQL_DATABASE=database
-    MYSQL_USER=user
-    MYSQL_PASSWORD=pass</code></pre>
+  image: mariadb:10.2
+  env_file:
+    - ./mysql.env
+  volumes:
+    - ./files/db:/var/lib/mysql
+  mem_limit: 748m
+  ports:
+    - "3306:3306"</code></pre>
 
                 </section>
 
-                <section>
-                    <h2>Conceptos básicos en <b style="color:#008ec4;">Drupal</b></h2>
 
+                <section>
+                    <h2>Docker en <b style="color:#008ec4;">Producción</b></h2>
+                    Diferencias con el entorno de desarrollo
                     <ul>
-                        <li class="fragment">Tipos de contenido</li>
-                        <li class="fragment">Templates</li>
-                        <li class="fragment">Módulos</li>
-                        <li class="fragment">View Modes</li>
+                        <li class="fragment">Sólo tiene lo necesario</li>
+                        <li class="fragment">No hay herramientas para desarrollar</li>
+                        <li class="fragment">El objetivo es que la imagen resultante sea lo más ligera posible</li>
+                        <li class="fragment">El código fuente (o el ejecutable) están dentro de la imagen</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2><b style="color:#008ec4;">Módulos</b> importantes</h2>
-
-                    <p>Hay miles de módulos en <a href="https://www.drupal.org/project/project_module">drupal.org</a></p>
-
+                    <h2>Docker en <b style="color:#008ec4;">Producción</b></h2>
+                    Docker Registry
                     <ul>
-                        <li class="fragment">Views</li>
-                        <li class="fragment">Features</li>
-                        <li class="fragment">Pathauto</li>
-                        <li class="fragment">Xmlsitemap</li>
-                        <li class="fragment">...</li>
+                        <li class="fragment">Se puede usar el servicio de Docker u otros</li>
+                        <li class="fragment">Podemos montar el nuestro usando una imagen oficial</li>
+                        <li class="fragment">Almacena nuestras imágenes</li>
+                        <li class="fragment">Etiquetar las imágenes puede resultar útil</li>
                     </ul>
                 </section>
+
+                <section>
+                    <h2>Docker en <b style="color:#008ec4;">Producción</b></h2>
+                    Balanceo de carga y vhosts
+                    <ul>
+                        <li class="fragment">Existen imágenes que nos facilitan la vida (jwilder/nginx-proxy)</li>
+                        <li class="fragment">Hacen uso de /var/run/docker.sock</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Docker en <b style="color:#008ec4;">Producción</b></h2>
+                    Let's Encrypt
+                    <ul>
+                        <li class="fragment">Existen imágenes que nos facilitan la vida (jrcs/letsencrypt-nginx-proxy-companion)</li>
+                        <li class="fragment">Se acopla al balanceador</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Integración <b style="color:#008ec4;">contínua</b></h2>
+                    <ul>
+                        <li class="fragment">Construcción automática de las imágenes</li>
+                        <li class="fragment">Etiquetado automático de las imágenes</li>
+                        <li class="fragment">Gestión de las actualizaciones en nuevos despliegues</li>
+                        <li class="fragment">Test</li>
+                        <li class="fragment">Rollback</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Integración <b style="color:#008ec4;">contínua</b></h2>
+                    Gestión de las actualizaciones en nuevos despliegues
+
+                    <pre class="fragment"><code>Backup</code></pre>
+                    <pre class="fragment"><code>image: mi/app:nuevaversion</code></pre>
+                    <pre class="fragment"><code>docker-compose stop app</code></pre>
+                    <pre class="fragment"><code>docker-compose rm -f app</code></pre>
+                    <pre class="fragment"><code>docker-compose up -d app</code></pre>
+                    <pre class="fragment"><code>docker-compose exec app sh /code/scripts/update.sh</code></pre>
+                </section>
+
+
+                <section>
+                    <h2>Integración <b style="color:#008ec4;">contínua</b></h2>
+                    Test
+                    <ul>
+                        <li class="fragment">Añadir una fase que incorpore herramientas de testing</li>
+                        <li class="fragment">Usar hooks en nuestro gestor de git que lancen procesos automáticos</li>
+                        <li class="fragment">Usar el resultado para saber si podemos mezclar</li>
+                        <li class="fragment">Construir un entorno a partir de una rama</li>
+                        <li class="fragment">Construir un entorno cuando hay una mezcla</li>
+                    </ul>
+                </section>
+
+
+
+
 
                 <section>
                     <h1><b style="color:#008ec4;">Gracias</b></h1>

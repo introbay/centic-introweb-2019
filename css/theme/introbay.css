@@ -38,8 +38,11 @@ html * {
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #fdf6e3;
-  background-color: #fdf6e3; }
+  /*background: #fdf6e3;
+  background-color: #fdf6e3;*/
+  background: white;
+  background-color: white;
+}
 
 .reveal {
   font-family: 'source-sans-pro', sans-serif;
