@@ -217,7 +217,7 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #268bd2;
+  color: #1d79c2;
   text-decoration: none;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
@@ -307,10 +307,16 @@ body {
 .reveal ul li:before {
   content: ">";
   margin-right: 25px;
-  color: #008ec4;
+  color: #1d79c2;
 }
 
 .resaltado {
   font-weight: bold;
-  color: #008ec4;
+  color: #1d79c2;
 }
+
+/*.reveal .slide-background {
+  background: #1d79c2;
+}
+ */
+
