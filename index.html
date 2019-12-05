@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>INTROBAY - Gestiona tus despliegues sin perder la cabeza</title>
+		<title>INTROBAY - Presentación Introweb</title>
 
-		<meta name="description" content="Gestiona tus despliegues sin perder la cabeza">
+		<meta name="description" content="Presentación Introweb">
 		<meta name="author" content="Ignacio López Flores - Introbay">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,15 +52,28 @@
             <div class="slides">
 
                 <section>
-                    <img class="sin-cajas" src="imgs/logo-tag-centro-blanco.svg" style="width:350px;" />
+                    <img class="sin-cajas" src="imgs/logo-tag-centro-blanco.svg" style="width:350px; margin-bottom: 36px;" />
                     <img class="sin-cajas" src="imgs/centic.jpg" style="width:350px;margin-left: 60px " />
 
                     <br/>
                     <div>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
                     <br>
-                    <h2>Gestiona tus <b style="color:#008ec4;">despliegues</b> sin perder la <b style="color:#008ec4;">cabeza</b></h2>
+                    <h2>Presentación <b class="resaltado">Introweb</b></h2>
                     <div>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+                </section>
 
+                <section>
+                    <h2>¿Para qué hicimos Introweb?</h2>
+                    <ul>
+                        <li class="fragment">Hay gente que no sabe de tecnología.</li>
+                        <li class="fragment">Hay gente que siente respeto o miedo al trabajar con tecnología.</li>
+                        <li class="fragment">Empresas que no tienen departamento de desarrollo de software.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>¿Para qué hicimos Introweb?</h2>
+                    Sin embargo, todos tienen la necesidad de generar contenido que aporte valor a sus negocios.
                 </section>
 
                 <section>
@@ -74,415 +87,194 @@
                 </section>
 
                 <section>
-                    <h2>Qué <span class="resaltado">es</span> Docker</h2>
-                </section>
-
-                <section>
-                    <h3>A alto nivel: una VM ligera</h3>
-                    <ul>
-                        <li>Propio espacio de procesos</li>
-                        <li>Propia interfaz de red</li>
-                        <li>Puede ejecutar órdenes como root</li>
-                        <li>Puede tener su propio /sbin/init</li>
-                        <li>Contenedor == Máquina</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h3>A bajo nivel: CHROOT con esteroides</h3>
-                    <ul>
-                        <li>Puede no tener su propio /sbin/init</li>
-                        <li>Contenedor = procesos aislados</li>
-                        <li>Comparte el kernel con el host</li>
-                        <li>Contenedor == Aplicación</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2>VMs vs Contenedores</h2>
-
-                    <div style="float: left; width: 45%;">
-                        <img src="imgs/VM-vs-container.png">
+                    <div style="float: left; width: 44%">
+                        <img  src="imgs/drupal.png" width="100%" style="border: none; background: none; box-shadow: none">
                     </div>
-                    <div style="float: right; width: 45%;">
-
-                        <h4>Los contenedores están aislados, pero comparten el kernel</h4>
-                        <p>... lo que aporta los beneficios de las VM pero con mucha menos sobrecarga, más portabilidad y eficiencia</p>
+                    <div style="float: left; width: 55%">
+                        <img  src="imgs/docker.png" width="100%" style="border: none; background: none; box-shadow: none">
                     </div>
                 </section>
 
                 <section>
-                    <h2><b style="color:#008ec4;">Dockerfile</b></h2>
-                    <h3>Ejemplo práctico</h3>
+                    <h3>¿Por qué nos embarcamos en la creación de un producto?</h3>
                     <ul>
-                        <li>Compilación de una app</li>
-                        <li>Ejecución de una app</li>
+                        <li class="fragment">Los clientes nos pedían proyectos similares, que en muchas ocasiones nos hacían enfrentarnos a problemas similares.</li>
+                        <li class="fragment">Crear una base sobre la que desarrollar proyectos a medida.</li>
+                        <li class="fragment">Hacer más eficiente el proceso de construcción de portales.</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2><b style="color:#008ec4;">Dockerfile</b></h2>
-
-                    Dockerfile para la compilación
-<pre><code class="Dockerfile">FROM golang:1.7.3
-WORKDIR /go/src/mi-app/
-COPY app.go .
-RUN go get -d -v golang.org/x/net/html \
-  && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
-</code></pre>
-
-                    <pre class="fragment"><code>docker build -t usuario/app:build .</code></pre>
-                    <pre class="fragment"><code>docker create --name extract usuario/app:build</code></pre>
-                    <pre class="fragment"><code>docker cp extract:/go/src/mi-app/app ./app</code></pre>
-                    <pre class="fragment"><code>docker rm -f extract</code></pre>
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Dockerfile</b></h2>
-                    Dockerfile ejecución
-                    <pre><code class="Dockerfile">FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
-COPY app .
-CMD ["./app"]
-
-</code></pre>
-
-                    <pre class="fragment"><code>docker build --no-cache -t usuario/app:latest .</code></pre>
-                    <pre class="fragment"><code>rm ./app</code></pre>
-
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Dockerfile</b></h2>
-
-                    Dockerfile.build
-                    <pre><code class="Dockerfile">FROM golang:1.7.3
-WORKDIR /go/src/mi-app/
-COPY app.go .
-RUN go get -d -v golang.org/x/net/html \
-  && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
-</code></pre>
-
-                    Dockerfile
-                    <pre><code class="Dockerfile">FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
-COPY app .
-CMD ["./app"]
-</code></pre>
-
-                </section>
-
-
-                <section>
-                    <h2><b style="color:#008ec4;">Dockerfile</b></h2>
-
-                    build.sh
-                    <pre ><code>#!/bin/sh
-echo Building usuario/app:build
-docker build -t usuario/app:build . -f Dockerfile.build
-docker create --name extract usuario/app:build
-docker cp extract:/go/src/mi-app/app ./app
-docker rm -f extract
-
-echo Building usuario/app:latest
-docker build --no-cache -t usuario/app:latest .
-rm ./app</code></pre>
-
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Multi-stage builds</b></h2>
-
+                    <h3>¿Por qué nos embarcamos en la creación de un producto?</h3>
                     <ul>
-                        <li class="fragment">Podemos usar varias sentencias FROM en un Dockerfile</li>
-                        <li class="fragment">Cada sentencia FROM puede usar una imagen base diferente</li>
-                        <li class="fragment">Cada sentencia FROM comienza un nuevo ciclo de construcción</li>
-                        <li class="fragment">Podemos copiar los artifacts generados en ciclos posteriores</li>
+                        <li class="fragment">Encontramos las piezas de tecnología adecuadas.</li>
+                        <li class="fragment">Con Docker podíamos empaquetar nuestro producto y desplegar N veces de una forma sencilla.</li>
+                        <li class="fragment">CI, automatización de despliegues, backups, tests, ..., actualizaciones en caliente (blue & green deployment).</li>
                     </ul>
-
                 </section>
 
                 <section>
-                    <h2><b style="color:#008ec4;">Multi-stage builds</b></h2>
-                    Dockerfile
-                    <pre><code class="Dockerfile">FROM golang:1.7.3
-WORKDIR /go/src/mi-app/
-RUN go get -d -v golang.org/x/net/html
-COPY app.go .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+                    <h2>Productos existentes</h2>
 
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
-COPY --from=0 /go/src/mi-app/app .
-CMD ["./app"]
-</code></pre>
+                    <h3 class="fragment">SAAS</h3>
 
-                    <pre class="fragment"><code>docker build --no-cache -t usuario/app:latest .</code></pre>
-
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Multi-stage builds</b></h2>
-                    Nombrar fases
-                    <pre><code class="Dockerfile">FROM golang:1.7.3 as builder
-WORKDIR /go/src/mi-app/
-RUN go get -d -v golang.org/x/net/html
-COPY app.go .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
-
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
-COPY --from=builder /go/src/mi-app/app .
-CMD ["./app"]
-</code></pre>
-
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Multi-stage builds</b></h2>
-                    <h3>Definir fase objetivo</h3>
-                    Podemos parar la construcción en la fase que necesitemos
-
-
-                    <pre class="fragment"><code>docker build --target builder -t usuario/app:latest .</code></pre>
-
-                    <div class="fragment" style="font-size: 0.8em">
-                        <p>Puede resultar útil para</p>
-                        <ul >
-                            <li>Depuración de una fase específica</li>
-                            <li>Utilizar una fase de depuración en la que se habiliten ciertas herramientas</li>
-                            <li>Utilizar una fase de test en la que añadamos datos a la aplicación</li>
-                        </ul>
-
+                    <div class="fragment" style="float: left; width: 44%">
+                        <img  src="imgs/wix_logo.png" width="100%" style="border: none; background: none; box-shadow: none; margin-top: 138px;">
+                    </div>
+                    <div class="fragment" style="float: left; width: 55%">
+                        <img  src="imgs/shopify_logo.png" width="100%" style="border: none; background: none; box-shadow: none">
                     </div>
                 </section>
 
                 <section>
-                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
-                    <p>Al generar una imagen, Docker crea una capa por cada instrucción que escribimos en nuestro Dockerfile.</p>
+                    <h2>Productos existentes</h2>
+
+                    <h3>SAAS</h3>
+
+                    <p class="fragment">Muy potentes, escasa o nula atención al cliente</p>
+                    <p class="fragment">Cliente cautivo. Comisión por venta. (Hawkers)</p>
                 </section>
 
                 <section>
-                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
-                    <p>Con el fin de minimizar el número de capas, concatenamos instrucciones usando && y otras técnicas.</p>
+                    <h2>Productos existentes</h2>
+
+                    <h3>On premise</h3>
+
+                    <p class="fragment">Wordpress, Prestashop, Magento</p>
+
+                    <p class="fragment">Todos son gratis</p>
+
                 </section>
 
                 <section>
-                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
-                    <p>Además, cuando creamos un contenedor, docker le asigna una "thin-layer", que no es más que una capa encima de todas las demás y que tiene la peculiaridad de ser de lectura-escritura.</p>
+
+                    <img  src="imgs/gato_riendo.jpg" width="60%" style="border: none; background: none; box-shadow: none">
+
                 </section>
 
                 <section>
-    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
-    <pre><code class="Dockerfile">FROM ubuntu:15.04
-COPY . /app
-RUN make /app
-CMD python /app/app.py
-</code></pre>
-</section>
+                    <h2>Productos existentes</h2>
 
-                <section>
-                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
-                    <img src="imgs/container-layers.jpg">
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">El sistema de capas</b></h2>
-                    Capas compartidas
-                    <img src="imgs/sharing-layers.jpg">
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
-                    <p>La información que se escribe en la "thin-layer" de un contenedor se destruye con el propio contenedor.</p>
-                    <p>¿Qué pasa si quiero que mis datos sean persistentes?</p>
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
-                    <h3>Existen tres tipos de almacenamientos</h3>
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
-                    <b>Volumes</b> se almacenan en una parte del sistema de ficheros <b>gestionada por Docker</b>.
-                    <p>El resto de procesos no deberían modificar estos datos.</p>
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
-                    <b>Bind mounts</b> pueden estar almacenados en <b>cualquier parte del sistema</b>.
-                    <p>Otros procesos podrían modificar estos datos.</p>
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
-                    <b>tmpfs mounts</b> se almacenan en la <b>memoria</b> del anfitrión solamente, y nunca se escriben el en sistema de ficheros.
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
-                    <img src="imgs/types-of-mounts.png">
-                </section>
-
-                <section>
-                    <h2><b style="color:#008ec4;">Volúmenes</b></h2>
-                    <img src="imgs/volumes-shared-storage.svg">
-                </section>
-
-
-                <section>
-                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
-                </section>
-
-                <section>
-                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
+                    <h3>On premise</h3>
                     <ul>
-                        <li class="fragment">La fase de desarrollo necesita herramientas extra que no se usarán en producción</li>
-                        <li class="fragment">Multi-stage</li>
-                        <li class="fragment">Los desarrolladores necesitarán compilar dentro del contenedor</li>
-                        <li class="fragment">Evitar tener que generar contínuamente las imágenes</li>
+                        <li class="fragment">Si quieres hacer un proyecto mediano necesitas la ayuda de una agencia.</li>
+                        <li class="fragment">En muchos casos tendrás varios proveedores: dominio, hosting, desarrollo, diseño, ...</li>
+                        <li class="fragment">Problema de las actualizaciones, plugins de terceros, etc.</li>
+                        <li class="fragment">Escalabilidad</li>
+                        <li class="fragment">Manejo de altos volúmenes de tráfico en campañas puntuales</li>
+                    </ul>
 
+                    <aside class="notes">
+                        Conocimientos previos
+                        Si un plugin no es compatible con la siguiente versión, no podrás actualizar.
+                        Riesgos de seguridad.
+                        Necesidad de tener un entorno de desarrollo para hacer pruebas.
+                        Sistema de integración contínua.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>¿Qué es <b class="resaltado">Introweb</b>?</h2>
+
+                    <ul>
+                        <li class="fragment">Introweb cubre todas estas necesidades.</li>
+                        <li class="fragment">Solución empresarial.</li>
+                        <li class="fragment">Ideal para corporaciones con necesidad de crear muchos portales.<br/>
+                            Ej. Ayuntamientos, grandes empresas.
+                        </li>
+                        <li class="fragment">
+                            Resuelve el problema de la gestión de contenidos y del mantenimiento.<br/>
+                            Uno para controlarlos a todos.
+                        </li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
-                    <ul>
-                        <li class="fragment"><pre><code>docker exec -it mi_app bash</code></pre></li>
-                        <li class="fragment">Volumes</li>
-                        <li class="fragment">Permisos</li>
-                        <li class="fragment">En la fase (stage) de desarrollo, es útil añadir scripts de ayuda</li>
-                    </ul>
+                    <video style="width: 70%; left: 0px; top: 0px;"
+                           alt="Lord Of The Rings GIF" src="https://media.giphy.com/media/Gmc6Rkr255dxC/giphy.mp4"
+                           poster="https://media.giphy.com/media/Gmc6Rkr255dxC/giphy_s.gif"
+                           autoplay="" loop="" playsinline="">
+                    </video>
                 </section>
 
                 <section>
-                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
-                    <ul>
-                        <li class="fragment">Usando docker-compose podemos definir stacks</li>
-                        <li class="fragment">Podemos empaquetar un directorio con docker-compose.yml + ficheros con datos para desarrollo y compartirlo</li>
-                    </ul>
+                    <div style="float: left">
+                        <p>Usarlo es como jugar con Lego</p>
+                        <p>Basado en bloques</p>
+
+                    </div>
+                    <div style="float: right; width: 44%">
+                        <img  src="imgs/lego.png" width="100%" style="border: none; background: none; box-shadow: none">
+                    </div>
                 </section>
 
                 <section>
-                    <h2>Desarrollando con <b style="color:#008ec4;">Docker</b></h2>
+                    <div style="float: left">
+                        <p>Fácil de usar con drag & drop</p>
 
-                    <pre><code>app:
-  build: ./build/app/.
-  links:
-    - db:db
-  volumes:
-    - ./files/drupal:/var/www
-    - /etc/localtime:/etc/localtime:ro
-    - $HOME/.ssh/id_rsa:/root/.ssh/id_rsa # WARNING: only for dev
-    - $HOME/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub # WARNING: only for dev
-    - $HOME/.ssh/known_hosts:/root/.ssh/known_hosts # WARNING: only for dev
-    - ~/.gitconfig:/root/.gitconfig # WARNING: only for dev
-  ports:
-    - 80:80
-  mem_limit: 1024m
-db:
-  image: mariadb:10.2
-  env_file:
-    - ./mysql.env
-  volumes:
-    - ./files/db:/var/lib/mysql
-  mem_limit: 748m
-  ports:
-    - "3306:3306"</code></pre>
+                    </div>
+                    <div style="float: right; width: 44%">
+                        <img  src="imgs/drag_n_drop.png" width="100%" style="border: none; background: none; box-shadow: none">
+                    </div>
+                </section>
 
+                <section>
+                    <p>Modular => poder segmentar mercados.</p>
                 </section>
 
 
                 <section>
-                    <h2>Docker en <b style="color:#008ec4;">Producción</b></h2>
-                    Diferencias con el entorno de desarrollo
-                    <ul>
-                        <li class="fragment">Sólo tiene lo necesario</li>
-                        <li class="fragment">No hay herramientas para desarrollar</li>
-                        <li class="fragment">El objetivo es que la imagen resultante sea lo más ligera posible</li>
-                        <li class="fragment">El código fuente (o el ejecutable) están dentro de la imagen</li>
-                    </ul>
+                    <h4>Funcionalidades genéricas</h4>
+                    <p class="fragment">
+                    - Landing pages<br/>
+                    - Blog<br/>
+                    - Eventos<br/>
+                    - Servicios<br/>
+                    - Portfolio<br/>
+                    - Miembros
+                    </p>
+                </section>
+
+                <section data-background-video="video/NavegaTX.webm">
                 </section>
 
                 <section>
-                    <h2>Docker en <b style="color:#008ec4;">Producción</b></h2>
-                    Docker Registry
-                    <ul>
-                        <li class="fragment">Se puede usar el servicio de Docker u otros</li>
-                        <li class="fragment">Podemos montar el nuestro usando una imagen oficial</li>
-                        <li class="fragment">Almacena nuestras imágenes</li>
-                        <li class="fragment">Etiquetar las imágenes puede resultar útil</li>
-                    </ul>
+                    <h4>Específicas</h4>
+                    <p class="fragment">
+                        - Hoteles<br/>
+                    </p>
+                </section>
+
+                <section data-background-video="video/lmc_habitaciones.webm">
                 </section>
 
                 <section>
-                    <h2>Docker en <b style="color:#008ec4;">Producción</b></h2>
-                    Balanceo de carga y vhosts
-                    <ul>
-                        <li class="fragment">Existen imágenes que nos facilitan la vida (jwilder/nginx-proxy)</li>
-                        <li class="fragment">Hacen uso de /var/run/docker.sock</li>
-                    </ul>
+                    <h4>Específicas</h4>
+                    <p class="fragment">
+                        - Restaurantes<br/>
+                    </p>
+                </section>
+
+                <section data-background-video="video/Rebate.webm">
                 </section>
 
                 <section>
-                    <h2>Docker en <b style="color:#008ec4;">Producción</b></h2>
-                    Let's Encrypt
-                    <ul>
-                        <li class="fragment">Existen imágenes que nos facilitan la vida (jrcs/letsencrypt-nginx-proxy-companion)</li>
-                        <li class="fragment">Se acopla al balanceador</li>
-                    </ul>
+                    <h4>Específicas</h4>
+                    <p class="fragment">
+                        - Comercio electrónico<br/>
+                    </p>
                 </section>
 
-                <section>
-                    <h2>Integración <b style="color:#008ec4;">contínua</b></h2>
-                    <ul>
-                        <li class="fragment">Construcción automática de las imágenes</li>
-                        <li class="fragment">Etiquetado automático de las imágenes</li>
-                        <li class="fragment">Gestión de las actualizaciones en nuevos despliegues</li>
-                        <li class="fragment">Test</li>
-                        <li class="fragment">Rollback</li>
-                    </ul>
+                <section data-background-video="video/Muba.mp4">
                 </section>
-
-                <section>
-                    <h2>Integración <b style="color:#008ec4;">contínua</b></h2>
-                    Gestión de las actualizaciones en nuevos despliegues
-
-                    <pre class="fragment"><code>Backup</code></pre>
-                    <pre class="fragment"><code>image: mi/app:nuevaversion</code></pre>
-                    <pre class="fragment"><code>docker-compose stop app</code></pre>
-                    <pre class="fragment"><code>docker-compose rm -f app</code></pre>
-                    <pre class="fragment"><code>docker-compose up -d app</code></pre>
-                    <pre class="fragment"><code>docker-compose exec app sh /code/scripts/update.sh</code></pre>
-                </section>
-
-
-                <section>
-                    <h2>Integración <b style="color:#008ec4;">contínua</b></h2>
-                    Test
-                    <ul>
-                        <li class="fragment">Añadir una fase que incorpore herramientas de testing</li>
-                        <li class="fragment">Usar hooks en nuestro gestor de git que lancen procesos automáticos</li>
-                        <li class="fragment">Usar el resultado para saber si podemos mezclar</li>
-                        <li class="fragment">Construir un entorno a partir de una rama</li>
-                        <li class="fragment">Construir un entorno cuando hay una mezcla</li>
-                    </ul>
-                </section>
-
-
-
-
 
                 <section>
                     <h1><b style="color:#008ec4;">Gracias</b></h1>
-
+                    <div>
+                        <img class="sin-cajas" src="imgs/logo-tag-centro-blanco.svg" style="width:350px; margin-bottom: 36px;" />
+                        <img class="sin-cajas" src="imgs/centic.jpg" style="width:350px;margin-left: 60px " />
+                    </div>
                 </section>
-
 
             </div>
         </div>
